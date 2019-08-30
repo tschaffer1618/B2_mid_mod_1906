@@ -18,13 +18,6 @@ describe "Book Index Page" do
     @robert.books << @treasure_island
     @robert.books << @zombie
   end
-  # As a user,
-  # When I visit '/books'
-  # Then I see each book in the system including the book's:
-  #   - title
-  #   - number of pages
-  #   - publication year
-  #   - the name of each author that wrote the book
 
   it "displays pertinent info about each book" do
     visit "/books"
@@ -50,6 +43,5 @@ describe "Book Index Page" do
       expect(page).to have_content(@ernest.name)
       expect(page).to have_content(@robert.name)
     end
-
   end
 end
