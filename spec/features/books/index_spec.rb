@@ -26,22 +26,32 @@ describe "Book Index Page" do
       expect(page).to have_content(@old_man.title)
       expect(page).to have_content(@old_man.number_of_pages)
       expect(page).to have_content(@old_man.publication_year)
-      expect(page).to have_content(@ernest.name)
+      expect(page).to have_link(@ernest.name)
     end
 
     within "#book-#{@treasure_island.id}" do
       expect(page).to have_content(@treasure_island.title)
       expect(page).to have_content(@treasure_island.number_of_pages)
       expect(page).to have_content(@treasure_island.publication_year)
-      expect(page).to have_content(@robert.name)
+      expect(page).to have_link(@robert.name)
     end
 
     within "#book-#{@zombie.id}" do
       expect(page).to have_content(@zombie.title)
       expect(page).to have_content(@zombie.number_of_pages)
       expect(page).to have_content(@zombie.publication_year)
-      expect(page).to have_content(@ernest.name)
-      expect(page).to have_content(@robert.name)
+      expect(page).to have_link(@ernest.name)
+      expect(page).to have_link(@robert.name)
     end
+  end
+
+  it "has links from the author names to the author show page" do
+    visit "/books"
+
+    within "#book-#{@zombie.id}" do
+      click_link("#{@ernest.name}")
+    end
+
+    expect(current_path).to eq("/authors/#{@ernest.id}") 
   end
 end
