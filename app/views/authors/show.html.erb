@@ -1,0 +1,9 @@
+<center>
+  <h1><u>Author Show Page</u></h1>
+  <h2><%= @author.name %></h2>
+  <p>Book(s):</p>
+    <% @author.books.each do |book| %>
+      <p><%= book.title  %></p>
+    <% end %>
+  <p>Average Number of Pages: <%= @author.average_book_length %></p>
+</center>
