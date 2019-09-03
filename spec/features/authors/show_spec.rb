@@ -33,6 +33,6 @@ describe "Author Show Page" do
     expect(page).to have_content(@ernest.name)
     expect(page).to have_content(@old_man.title)
     expect(page).to have_content(@zombie.title)
-    expect(page).to have_content(@ernest.average_book_length)
+    expect(page).to have_content(@ernest.average_book_length.to_i)
   end
 end
